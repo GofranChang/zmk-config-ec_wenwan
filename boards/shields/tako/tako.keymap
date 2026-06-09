@@ -1,6 +1,6 @@
-#include "../miryoku/custom_config.h"
-#include "../miryoku/mapping/34/ferris.h"
-#include "../miryoku/miryoku.dtsi"
+#include "../../../modules/miryoku/custom_config.h"
+#include "../../../modules/miryoku/mapping/34/ferris.h"
+#include "../../../modules/miryoku/miryoku.dtsi"
 
 // // This file was generated from a template. Edit it to match your keyboard.
 // // See https://zmk.dev/docs/development/hardware-integration/new-shield for more instructions.
