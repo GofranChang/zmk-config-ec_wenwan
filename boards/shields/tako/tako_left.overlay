@@ -1,14 +1,66 @@
-// This file was generated from a template. Edit it to match your keyboard.
-// See https://zmk.dev/docs/development/hardware-integration/new-shield for more
-// instructions.
-
 #include "tako.dtsi"
 
-&kscan {
-    // Replace these comments with the GPIO pins in the matrix for the left side.
-    // See https://zmk.dev/docs/development/hardware-integration/new-shield#shield-overlays
-    col-gpios
-        = <&pro_micro 0 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 0 GPIO_ACTIVE_HIGH>
-        ;
+/ {
+    chosen {
+        zmk,kscan = &kscan;
+    };
+
+    ec_mux: ec_mux {
+        compatible = "zmk,gpio-mux";
+        gpio-controller;
+        #gpio-cells = <2>;
+
+        select-gpios = <&pro_micro 21 GPIO_ACTIVE_HIGH>,
+                       <&pro_micro 20 GPIO_ACTIVE_HIGH>,
+                       <&pro_micro 18 GPIO_ACTIVE_HIGH>;
+
+        en-gpios = <&pro_micro 10 GPIO_ACTIVE_HIGH>;
+    };
+
+    kscan: kscan {
+        compatible = "zmk,kscan-ec-matrix";
+        label = "KSCAN";
+
+        strobe-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>,
+                       <&pro_micro 5 GPIO_ACTIVE_HIGH>,
+                       <&pro_micro 6 GPIO_ACTIVE_HIGH>,
+                       <&pro_micro 16 GPIO_ACTIVE_HIGH>;
+
+        input-gpios = <&ec_mux 4 GPIO_ACTIVE_HIGH>,
+                      <&ec_mux 6 GPIO_ACTIVE_HIGH>,
+                      <&ec_mux 2 GPIO_ACTIVE_HIGH>,
+                      <&ec_mux 1 GPIO_ACTIVE_HIGH>,
+                      <&ec_mux 3 GPIO_ACTIVE_HIGH>;
+
+        drain-gpios = <&pro_micro 14 GPIO_ACTIVE_HIGH>;
+        io-channels = <&adc 1>;
+        power-gpios = <&pro_micro 15 GPIO_ACTIVE_HIGH>;
+
+        matrix-warm-up-us = <0>;
+        matrix-relax-us = <0>;
+        adc-read-settle-us = <0>;
+
+        trigger-percentage = <50>;
+
+        dynamic-polling-interval;
+        active-polling-interval-ms = <5>;
+        idle-polling-interval-ms = <50>;
+        sleep-polling-interval-ms = <500>;
+        idle-after-secs = <5>;
+        sleep-after-secs = <300>;
+    };
+};
+
+&adc {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    status = "okay";
+
+    channel@1 {
+        reg = <1>;
+        zephyr,gain = "ADC_GAIN_1_6";
+        zephyr,reference = "ADC_REF_INTERNAL";
+        zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+        zephyr,resolution = <10>;
+    };
 };
