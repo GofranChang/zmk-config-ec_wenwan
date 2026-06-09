@@ -10,9 +10,12 @@
         transform = <&default_transform>;
         kscan = <&kscan>;
 
-        // 34-key split layout, simple visual layout.
-        // Unit: 100 = 1u.
-        // Order must match default_transform.map / keymap binding order.
+        // 34-key Tako layout.
+        // Order must match the keymap binding order:
+        // left top 5, right top 5,
+        // left home 5, right home 5,
+        // left bottom 5, right bottom 5,
+        // left thumbs 2, right thumbs 2.
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0    0       0     0     0>
             , <&key_physical_attrs 100 100  100    0       0     0     0>
@@ -20,26 +23,17 @@
             , <&key_physical_attrs 100 100  300    0       0     0     0>
             , <&key_physical_attrs 100 100  400    0       0     0     0>
 
-            , <&key_physical_attrs 100 100    0  100       0     0     0>
-            , <&key_physical_attrs 100 100  100  100       0     0     0>
-            , <&key_physical_attrs 100 100  200  100       0     0     0>
-            , <&key_physical_attrs 100 100  300  100       0     0     0>
-            , <&key_physical_attrs 100 100  400  100       0     0     0>
-
-            , <&key_physical_attrs 100 100    0  200       0     0     0>
-            , <&key_physical_attrs 100 100  100  200       0     0     0>
-            , <&key_physical_attrs 100 100  200  200       0     0     0>
-            , <&key_physical_attrs 100 100  300  200       0     0     0>
-            , <&key_physical_attrs 100 100  400  200       0     0     0>
-
-            , <&key_physical_attrs 100 100  300  320       0     0     0>
-            , <&key_physical_attrs 100 100  400  320       0     0     0>
-
             , <&key_physical_attrs 100 100  700    0       0     0     0>
             , <&key_physical_attrs 100 100  800    0       0     0     0>
             , <&key_physical_attrs 100 100  900    0       0     0     0>
             , <&key_physical_attrs 100 100 1000    0       0     0     0>
             , <&key_physical_attrs 100 100 1100    0       0     0     0>
+
+            , <&key_physical_attrs 100 100    0  100       0     0     0>
+            , <&key_physical_attrs 100 100  100  100       0     0     0>
+            , <&key_physical_attrs 100 100  200  100       0     0     0>
+            , <&key_physical_attrs 100 100  300  100       0     0     0>
+            , <&key_physical_attrs 100 100  400  100       0     0     0>
 
             , <&key_physical_attrs 100 100  700  100       0     0     0>
             , <&key_physical_attrs 100 100  800  100       0     0     0>
@@ -47,12 +41,20 @@
             , <&key_physical_attrs 100 100 1000  100       0     0     0>
             , <&key_physical_attrs 100 100 1100  100       0     0     0>
 
+            , <&key_physical_attrs 100 100    0  200       0     0     0>
+            , <&key_physical_attrs 100 100  100  200       0     0     0>
+            , <&key_physical_attrs 100 100  200  200       0     0     0>
+            , <&key_physical_attrs 100 100  300  200       0     0     0>
+            , <&key_physical_attrs 100 100  400  200       0     0     0>
+
             , <&key_physical_attrs 100 100  700  200       0     0     0>
             , <&key_physical_attrs 100 100  800  200       0     0     0>
             , <&key_physical_attrs 100 100  900  200       0     0     0>
             , <&key_physical_attrs 100 100 1000  200       0     0     0>
             , <&key_physical_attrs 100 100 1100  200       0     0     0>
 
+            , <&key_physical_attrs 100 100  300  320       0     0     0>
+            , <&key_physical_attrs 100 100  400  320       0     0     0>
             , <&key_physical_attrs 100 100  700  320       0     0     0>
             , <&key_physical_attrs 100 100  800  320       0     0     0>
             ;
