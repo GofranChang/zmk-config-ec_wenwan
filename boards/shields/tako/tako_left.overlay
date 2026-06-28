@@ -1,5 +1,8 @@
 #include "tako.dtsi"
 
+#include <zephyr/dt-bindings/adc/adc.h>
+#include <zephyr/dt-bindings/adc/nrf-saadc.h>
+
 / {
     chosen {
         zmk,kscan = &kscan;
@@ -51,6 +54,20 @@
     };
 };
 
+// &adc {
+//     #address-cells = <1>;
+//     #size-cells = <0>;
+//     status = "okay";
+
+//     channel@1 {
+//         reg = <1>;
+//         zephyr,gain = "ADC_GAIN_1_6";
+//         zephyr,reference = "ADC_REF_INTERNAL";
+//         zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+//         zephyr,resolution = <10>;
+//     };
+// };
+
 &adc {
     #address-cells = <1>;
     #size-cells = <0>;
@@ -60,7 +77,9 @@
         reg = <1>;
         zephyr,gain = "ADC_GAIN_1_6";
         zephyr,reference = "ADC_REF_INTERNAL";
-        zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+        zephyr,acquisition-time =
+            <ADC_ACQ_TIME(ADC_ACQ_TIME_MICROSECONDS, 10)>;
         zephyr,resolution = <10>;
+        zephyr,input-positive = <NRF_SAADC_AIN0>;
     };
 };
