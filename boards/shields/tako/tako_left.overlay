@@ -39,9 +39,9 @@
         io-channels = <&adc 1>;
         power-gpios = <&pro_micro 15 GPIO_ACTIVE_HIGH>;
 
-        matrix-warm-up-us = <50>;
-        matrix-relax-us = <5>;
-        adc-read-settle-us = <5>;
+        matrix-warm-up-us = <100>;
+        matrix-relax-us = <30>;
+        adc-read-settle-us = <30>;
 
         trigger-percentage = <50>;
 
