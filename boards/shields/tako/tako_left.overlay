@@ -35,7 +35,7 @@
                       <&ec_mux 1 GPIO_ACTIVE_HIGH>,
                       <&ec_mux 3 GPIO_ACTIVE_HIGH>;
 
-        drain-gpios = <&pro_micro 14 GPIO_ACTIVE_HIGH>;
+        drain-gpios = <&pro_micro 14 GPIO_ACTIVE_LOW>;
         io-channels = <&adc 1>;
         power-gpios = <&pro_micro 15 GPIO_ACTIVE_HIGH>;
 
