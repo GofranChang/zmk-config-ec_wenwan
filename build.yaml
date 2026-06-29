@@ -23,7 +23,7 @@ include:
     shield: tako_left
   - board: nice_nano
     shield: tako_left
-    snippet: enable_ec_calibrator zmk-usb-logging
+    snippet: enable_ec_calibrator # zmk-usb-logging
     artifact-name: tako_left_calibrator
 
   # - board: nice_nano

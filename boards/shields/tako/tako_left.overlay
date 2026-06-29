@@ -40,8 +40,8 @@
         power-gpios = <&pro_micro 15 GPIO_ACTIVE_HIGH>;
 
         matrix-warm-up-us = <2000>;
-        matrix-relax-us = <30>;
-        adc-read-settle-us = <30>;
+        matrix-relax-us = <300>;
+        adc-read-settle-us = <3000>;
 
         trigger-percentage = <50>;
 
