@@ -4,15 +4,17 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://gitee.com/gofranchang
-    - name: petejohanson
-      url-base: https://github.com/petejohanson
+    # - name: petejohanson
+    #   url-base: https://github.com/petejohanson
+    - name: GofranChang
+      url-base: https://github.com/GofranChang
   projects:
     - name: zmk
       remote: petejohanson
       revision: core/move-to-zephyr-4-1
       import: app/west.yml
     - name: analog-matrix-module
-      remote: petejohanson
-      revision: main
+      remote: GofranChang
+      revision: tako_dbg
   self:
     path: config
