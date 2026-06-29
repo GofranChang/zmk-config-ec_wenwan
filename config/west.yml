@@ -4,8 +4,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://gitee.com/gofranchang
-    # - name: petejohanson
-    #   url-base: https://github.com/petejohanson
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
     - name: GofranChang
       url-base: https://github.com/GofranChang
   projects:
